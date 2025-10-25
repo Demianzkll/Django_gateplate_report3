@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Результат — GatePlate{% endblock %}
+
+{% block content %}
+<section id="result-page">
+  <div class="content">
+    <h2>Результат розпізнавання</h2>
+    <div class="card">
+      {% if plate_number %}
+        <p style="margin-top: 10px;">{{ message }}</p>
+        <p id="plate-number" style="font-size:1.5rem;font-weight:600;">{{ plate_number }}</p>
+        <p id="access-status" style="font-size:1.2rem;">
+          {% if access_status == "allowed" %}
+            <span class="allowed">В’їзд дозволено</span>
+          {% else %}
+            <span class="denied">В’їзд заборонено</span>
+          {% endif %}
+        </p>
+      {% endif %}
+
+      <a href="{% url 'home' %}" class="btn">Повернутись</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

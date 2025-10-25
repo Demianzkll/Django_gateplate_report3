@@ -1,0 +1,17 @@
+{% load static %}
+<nav>
+  <div class="container">
+    <div class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="GatePlate Logo">
+      <h1>GatePlate</h1>
+    </div>
+    <div class="nav-buttons">
+      <a href="{% url 'home' %}" class="nav-item {% if request.path == '/' %}active{% endif %}">Головна</a>
+      <a href="{% url 'result' %}" class="nav-item {% if request.path == '/result/' %}active{% endif %}">Результат</a>
+      <a href="{% url 'vehicles' %}" class="nav-item {% if request.path == '/vehicles/' %}active{% endif %}">Усі машини</a>
+    </div>
+  </div>
+</nav>
+
+
+

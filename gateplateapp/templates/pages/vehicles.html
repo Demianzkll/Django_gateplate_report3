@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+{% block title %}База автомобілів — GatePlate{% endblock %}
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+
+{% block content %}
+<section id="vehicles-page">
+  <div class="content">
+    <h2>База автомобілів</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Фото</th>
+            <th>Номер</th>
+            <th>Марка</th>
+            <th>Колір</th>
+            <th>Статус</th>
+            <th>Власник</th>
+            <th>Телефон</th>
+            <th>Дата останнього в'їзду</th>
+          </tr>
+        </thead>      
+        <tbody>
+            {% for v in vehicles %}
+            <tr>
+              <td id="photoModal">
+                {% if v.car_image %}
+                  <img src="{{ MEDIA_URL }}{{ v.car_image }}" width="100" style="border-radius:8px;" alt="Car" class="zoomable-img">
+                {% else %}
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Car_front_view.jpg" width="100" style="border-radius:8px;">
+                {% endif %}
+              </td>
+              <td>{{ v.license_plate }}</td>
+              <td>{{ v.car_brand }}</td>
+              <td>{{ v.color }}</td>
+              <td class="{% if v.car_status == 'дозволено' %}allowed{% else %}denied{% endif %}">
+                {{ v.car_status|title }}
+              </td>
+              <td>
+                {% if v.owner %}
+                  {{ v.owner.first_name }} {{ v.owner.last_name }}
+                {% else %}
+                  <i>Невідомо</i>
+                {% endif %}
+              </td>
+              <td>{{ v.owner.phone|default:"—" }}</td>
+              <td>
+                {% if v.last_access %}
+                  {{ v.last_access|date:"d.m.Y H:i" }}
+                {% else %}
+                  <i>—</i>
+                {% endif %}
+              </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="7"><i>Немає записів</i></td></tr>
+            {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img id="modalImg" class="modal-content-img">
+  </div>
+</section>
+{% endblock %}

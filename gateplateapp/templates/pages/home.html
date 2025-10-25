@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Головна — GatePlate{% endblock %}
+
+{% block content %}
+<main id="main-page">
+  <div class="content">
+    <h2>Розпізнавання номерних знаків</h2>
+    <p>Завантажте фото автомобіля для розпізнавання та перевірки доступу</p>
+
+    <form action="{% url 'result' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="card">
+        <div id="upload-area" class="upload-area">
+          <i class="fas fa-cloud-arrow-up"></i>
+          <h3>Завантажте фото авто</h3>
+          <p>Перетягніть файл або натисніть, щоб вибрати</p>
+          <input type="file" name="car_image" id="fileInput" accept="image/*" style="display:none;" required>
+        </div>
+
+        <div id="preview-section" style="display:none;">
+          <h4>Попередній перегляд:</h4>
+          <img id="preview-image" />
+          <br>
+          <button class="btn" type="submit" id="process-btn">Обробити</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</main>
+{% endblock %}

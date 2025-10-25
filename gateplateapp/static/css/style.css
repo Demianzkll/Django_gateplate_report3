@@ -1,0 +1,269 @@
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0A1F44, #1E2A38);
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #1E293B;
+      border-bottom: 1px solid #475569;
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .logo h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 24px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    .nav-item {
+      color: #d1d5db;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      background: none;
+      border: none;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      color: #fff;
+      background-color: rgba(0, 191, 165, 0.1);
+    }
+
+    .nav-item.active {
+      background-color: rgba(0, 191, 165, 0.2);
+      border-left: 4px solid #00BFA5;
+      color: #fff;
+    }
+   
+
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: #1E2A38;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* --- Upload зона --- */
+    .upload-area {
+      border: 2px dashed #00BFA5;
+      border-radius: 1rem;
+      padding: 3rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .upload-area:hover {
+      background-color: rgba(0,191,165,0.05);
+    }
+
+    .upload-area i {
+      font-size: 3rem;
+      color: #00BFA5;
+      margin-bottom: 1rem;
+    }
+
+    #preview-image {
+      max-height: 250px;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00BFA5, #4DD0E1);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 191, 165, 0.3);
+    }
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      text-align: center;  
+    }
+
+    th {
+      color: #00BFA5;
+      border-bottom: 1px solid #00BFA5;
+    }
+
+
+    tr:hover {
+      background-color: rgba(255,255,255,0.05);
+    }
+
+
+.image-modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-modal:hover {
+  color: #ddd;
+}
+
+.zoomable-img {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.zoomable-img:hover {
+  transform: scale(1.05);
+}
+
+
+  .allowed {
+    color: #00BFA5;
+    font-weight: 600;
+  }
+
+  .denied {
+    color: #ef4444;
+    font-weight: 600;
+  }
+
+
+.footer {
+  background-color: #111827;
+  border-top: 1px solid #374151;
+  color: #9ca3af;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 4rem;
+}
+
+    .footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    }
+
+    .footer-title {
+    color: #ababab;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    }
+
+    .footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    }
+
+    .footer .accent {
+    color: #00BFA5;
+    font-weight: 600;
+    }
+
+    .footer-links {
+    font-size: 0.9rem;
+    }
+
+    .footer-links a {
+    color: #00BFA5;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+    color: #4DD0E1;
+    }
